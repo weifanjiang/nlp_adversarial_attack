@@ -8,4 +8,4 @@ Group members:
 
 ## Goal
 
-We try to generate adversarial examples for NLP models with black-box access (only predictions and confidence in prediction is accessible). We aim to produce adversarial example with sentence-level perturbation.
+We try to generate adversarial examples for NLP models with black-box access (only predictions and confidence of predictions are accessible). We aim to produce adversarial example with sentence-level perturbation.
