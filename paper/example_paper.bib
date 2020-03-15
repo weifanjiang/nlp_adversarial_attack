@@ -1,0 +1,34 @@
+@inproceedings{alzantot-etal-2018-generating,
+    title = "Generating Natural Language Adversarial Examples",
+    author = "Alzantot, Moustafa  and
+      Sharma, Yash  and
+      Elgohary, Ahmed  and
+      Ho, Bo-Jhang  and
+      Srivastava, Mani  and
+      Chang, Kai-Wei",
+    booktitle = "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+    month = oct # "-" # nov,
+    year = "2018",
+    address = "Brussels, Belgium",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/D18-1316",
+    doi = "10.18653/v1/D18-1316",
+    pages = "2890--2896",
+    abstract = "Deep neural networks (DNNs) are vulnerable to adversarial examples, perturbations to correctly classified examples which can cause the model to misclassify. In the image domain, these perturbations can often be made virtually indistinguishable to human perception, causing humans and state-of-the-art models to disagree. However, in the natural language domain, small perturbations are clearly perceptible, and the replacement of a single word can drastically alter the semantics of the document. Given these challenges, we use a black-box population-based optimization algorithm to generate semantically and syntactically similar adversarial examples that fool well-trained sentiment analysis and textual entailment models with success rates of 97{\%} and 70{\%}, respectively. We additionally demonstrate that 92.3{\%} of the successful sentiment analysis adversarial examples are classified to their original label by 20 human annotators, and that the examples are perceptibly quite similar. Finally, we discuss an attempt to use adversarial training as a defense, but fail to yield improvement, demonstrating the strength and diversity of our adversarial examples. We hope our findings encourage researchers to pursue improving the robustness of DNNs in the natural language domain.",
+}
+@inproceedings{ren-etal-2019-generating,
+    title = "Generating Natural Language Adversarial Examples through Probability Weighted Word Saliency",
+    author = "Ren, Shuhuai  and
+      Deng, Yihe  and
+      He, Kun  and
+      Che, Wanxiang",
+    booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2019",
+    address = "Florence, Italy",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/P19-1103",
+    doi = "10.18653/v1/P19-1103",
+    pages = "1085--1097",
+    abstract = "We address the problem of adversarial attacks on text classification, which is rarely studied comparing to attacks on image classification. The challenge of this task is to generate adversarial examples that maintain lexical correctness, grammatical correctness and semantic similarity. Based on the synonyms substitution strategy, we introduce a new word replacement order determined by both the word saliency and the classification probability, and propose a greedy algorithm called probability weighted word saliency (PWWS) for text adversarial attack. Experiments on three popular datasets using convolutional as well as LSTM models show that PWWS reduces the classification accuracy to the most extent, and keeps a very low word substitution rate. A human evaluation study shows that our generated adversarial examples maintain the semantic similarity well and are hard for humans to perceive. Performing adversarial training using our perturbed datasets improves the robustness of the models. At last, our method also exhibits a good transferability on the generated adversarial examples.",
+}
