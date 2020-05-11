@@ -10,7 +10,7 @@ Group members:
 
 Please install dependencies including [stanford NLP](https://pypi.org/project/stanfordnlp/) with English models, [keras-preprocessing](https://pypi.org/project/Keras-Preprocessing/), and [tensorflow](https://www.tensorflow.org/), etc.
 
-Note that this project requires tensorflow version 1 and is uncompatible with version 2 and/or above.
+Note that this project requires tensorflow version 1 and is incompatible with version 2 and/or above.
 
 ## Usage
 
