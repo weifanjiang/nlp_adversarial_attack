@@ -24,4 +24,4 @@ A demostration on how to use our attack is in `sentence_level_genetic_attack_dem
 
 ## Credit
 
-The pretrained models and preprocessing of input data are from (Alzantot Et Al.)[https://www.aclweb.org/anthology/D18-1316/]. Our forked version of their original repo is [here](https://github.com/weifanjiang/nlp_adversarial_examples). 
+The pretrained models and preprocessing of input data are from [Alzantot Et Al.](https://www.aclweb.org/anthology/D18-1316/). Our forked version of their original repo is [here](https://github.com/weifanjiang/nlp_adversarial_examples). 
