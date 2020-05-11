@@ -20,7 +20,7 @@ Please download this [zip file](https://drive.google.com/open?id=19FCkbg9IpbdFsh
 
 Our implementation of the Sentence-level genetic algorithm with sentence-level perturbation, along with other helper functions is in `sentence_level_genetic_attack.py`. Please change the envrionmental variables in the script accordingly (dataset name, google cloud API credentials, etc.).
 
-A demostration on how to use our attack is in `sentence_level_genetic_attack_demo.ipynb`. The example model is trained with __WordCNN__ and __imdb__ dataset.
+A demostration on how to use our attack is in `sentence_level_genetic_attack_demo.ipynb`. The example model used is a __WordCNN__ trained with __imdb__ dataset.
 
 ## Credit
 
