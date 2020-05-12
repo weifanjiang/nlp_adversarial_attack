@@ -162,7 +162,7 @@ def get_all_languages():
 
 ############# Implementation of Sentence-level genetic algorithm ##########################
 
-def perturb(sentences, saliencies, cache, not_choose=set()):
+def perturb(sentences, saliencies, cache, not_choose=None):
     """
     Random perturbation to the input list of sentences.
 
@@ -176,13 +176,17 @@ def perturb(sentences, saliencies, cache, not_choose=set()):
     Note it tries back translation for 20 times to get a different structured sentence from original.
     Weifan's personal credit card is on Google Cloud so he's very careful.
     """
+
+    if not_choose is None:
+        not_choose = set()
+
     choices = list()
     weights = list()
     for i in range(len(sentences)):
         if i not in not_choose:
             choices.append(sentences[i])
             weights.append(saliencies[i])
-    weights = softmax(weights)
+    weights = softmax(weights, determinism=30)
     
     choice = np.random.choice(choices, p=weights)
     all_rephrase = set()
@@ -276,13 +280,13 @@ def genetic(x0, y0, model, population, generation, cache = None, verbose = False
         print('target is to make index {} > 0.5'.format(target_idx))
     
     gen0 = list()
-    chosen_idx = dict()
+    chosen_idx = list()
     for i in range(population):
         chosen = set()
         sample, idx = perturb(sentences, saliency_scores, cache)
         gen0.append(sample)
         chosen.add(idx)
-        chosen_idx[i] = chosen
+        chosen_idx.append(chosen)
     
     curr_gen = gen0
     for i in range(generation):
@@ -294,7 +298,7 @@ def genetic(x0, y0, model, population, generation, cache = None, verbose = False
         for j, sample in enumerate(curr_gen):
             sample_pred = predict_sentences(model, sample)
             if verbose:
-                print("population {} pred: {}, changed idx: {}".format(j, sample_pred, chosen_idx[i]))
+                print("population {} pred: {}, changed idx: {}".format(j, sample_pred, chosen_idx[j]))
             if sample_pred[target_idx] > 0.5:
                 if verbose:
                     print('successful adv. example found!')
@@ -307,7 +311,7 @@ def genetic(x0, y0, model, population, generation, cache = None, verbose = False
             print('population with fitness scores: {}'.format(sample_weight))
         
         next_gen = list()
-        next_chosen = dict()
+        next_chosen = list()
         for j in range(population):
             idx_list = list(range(population))
             p1 = np.random.choice(idx_list, p=sample_weight)
@@ -316,10 +320,10 @@ def genetic(x0, y0, model, population, generation, cache = None, verbose = False
                 print("child {} generated with parents {} and {}".format(j, p1, p2))
             child, child_change = crossover(curr_gen[p1], curr_gen[p2], chosen_idx[p1], chosen_idx[p2])
             saliency_scores = sentence_saliency(model, child, y0)
-            child_mutate, change_idx = perturb(sentences, saliency_scores, cache)
+            child_mutate, change_idx = perturb(sentences, saliency_scores, cache, child_change)
             next_gen.append(child_mutate)
             child_change.add(change_idx)
-            next_chosen[j] = child_change
+            next_chosen.append(child_change)
         curr_gen = next_gen
         chosen_idx = next_chosen
 
